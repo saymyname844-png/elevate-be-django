@@ -7,9 +7,12 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.permissions import IsAuthenticated
 from elevate.models import User
 from django.db import IntegrityError
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 import re
 
 
+@method_decorator(csrf_exempt, name='dispatch')
 class SignupView(APIView):
 
     def post(self, request):
