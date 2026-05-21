@@ -31,6 +31,10 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost').split(',')
 
 AUTH_USER_MODEL = 'elevate.User'
 
+AUTHENTICATION_BACKENDS = [
+    'elevate.backends.UserLoginBackend',
+]
+
 import os
 
 MEDIA_URL = "/media/"
